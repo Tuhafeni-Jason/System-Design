@@ -1,0 +1,63 @@
+{
+  "id": "printer-001",
+  "name": "HP LaserJet Pro",
+  "tag": "IT-PR-2025",
+  "faculty": "Engineering",
+  "department": "Computer Science",
+  "dateAcquired": "2023-02-15",
+  "status": "ACTIVE",  
+
+  "components": [
+    {
+      "id": "motor-01",
+      "name": "Main Motor",
+      "description": "Drives the paper feed",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "toner-01",
+      "name": "Toner Cartridge",
+      "description": "Black ink toner",
+      "status": "ACTIVE"
+    }
+  ],
+
+  "maintenanceSchedules": [
+    {
+      "id": "ms-01",
+      "type": "Quarterly Check",
+      "lastServiceDate": "2024-10-01",
+      "nextDueDate": "2025-01-01"
+    },
+    {
+      "id": "ms-02",
+      "type": "Yearly Overhaul",
+      "lastServiceDate": "2024-01-15",
+      "nextDueDate": "2025-01-15"
+    }
+  ],
+
+  "workOrders": [
+    {
+      "id": "wo-01",
+      "dateOpened": "2025-03-01",
+      "status": "OPEN",
+      "description": "Paper jam issue in tray 2",
+
+      "tasks": [
+        {
+          "id": "task-01",
+          "description": "Clean feed rollers",
+          "assignedTo": "Technician A",
+          "status": "COMPLETED"
+        },
+        {
+          "id": "task-02",
+          "description": "Replace worn roller",
+          "assignedTo": "Technician B",
+          "status": "PENDING"
+        }
+      ]
+    }
+  ]
+}

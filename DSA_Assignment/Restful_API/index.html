@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NUST Asset Manager</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 2rem;">
+  <h1>Asset Manager</h1>
+
+  <h2>Upload Asset (JSON file)</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".json" required />
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>
