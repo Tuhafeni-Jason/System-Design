@@ -66,14 +66,15 @@ input[type="file"] {
   font-size: 1rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
+  font-family: 'false';
   width: 100% !important;
   max-width: 400px !important;
 }
 
 input[type="file"]:hover {
-  border-color: #4a5568 !important;
+  border-color: #ffffff !important;
   background: rgba(25, 25, 112, 0.1) !important;
-  transform: translateY(-2px) !important;
+  transform: translateY(-2px), scale(1.1)!important;
 }
 
 input[type="file"]:focus {
@@ -100,8 +101,9 @@ button {
 
 button:hover {
   background: linear-gradient(135deg, #4a5568 0%, #191970 100%) !important;
-  transform: translateY(-3px) !important;
+  transition: 1.5s;
   box-shadow: 0 6px 20px rgba(25, 25, 112, 0.4) !important;
+  border: 5px solid #ffffff !important;
 }
 
 button:active {
