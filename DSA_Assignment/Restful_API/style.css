@@ -1,0 +1,166 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'false';
+  margin: 0 !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, #191970 0%, #2c3e50 50%, #34495e 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container for centering content */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  color: #191970;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+/* Heading styles */
+h1 {
+  color: #191970 !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 2rem !important;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(25, 25, 112, 0.3);
+}
+
+h2 {
+  color: #191970 !important;
+  font-size: 1.8rem !important;
+  margin-bottom: 1.5rem !important;
+  font-weight: 600;
+}
+
+/* Form styling */
+form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 1rem !important;
+  border: 3px dashed #191970 !important;
+  border-radius: 10px !important;
+  background: rgba(25, 25, 112, 0.05) !important;
+  color: #191970 !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  max-width: 400px !important;
+}
+
+input[type="file"]:hover {
+  border-color: #4a5568 !important;
+  background: rgba(25, 25, 112, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+input[type="file"]:focus {
+  outline: none !important;
+  border-color: #191970 !important;
+  box-shadow: 0 0 0 3px rgba(25, 25, 112, 0.2) !important;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(135deg, #191970 0%, #4a5568 100%) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  border-radius: 10px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(25, 25, 112, 0.3) !important;
+  min-width: 150px !important;
+  font-family: 'false';
+}
+
+button:hover {
+  background: linear-gradient(135deg, #4a5568 0%, #191970 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(25, 25, 112, 0.4) !important;
+}
+
+button:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 10px rgba(25, 25, 112, 0.3) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem !important;
+  }
+  
+  .container {
+    padding: 2rem !important;
+    margin: 1rem !important;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  input[type="file"] {
+    padding: 0.8rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  button {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Additional decorative elements */
+.container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #191970, #4a5568, #191970);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.3s ease !important;
+}
+
+/* Focus styles for accessibility */
+input:focus,
+button:focus {
+  outline: 2px solid #191970 !important;
+  outline-offset: 2px !important;
+}
