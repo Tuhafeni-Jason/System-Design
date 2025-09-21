@@ -1,8 +1,9 @@
-# Manual type definitions for Car Rental System
-# These types match the structure in car_rental.proto
+// =============================
+// Types for Car Rental System
+// =============================
 
-# Car details
-public type Car record {|
+// Car details
+public type Car record {| 
     string id;
     string make;
     string model;
@@ -14,8 +15,8 @@ public type Car record {|
     string createdAt;
 |};
 
-# User profile
-public type User record {|
+// User profile
+public type User record {| 
     string userId;
     string name;
     string email;
@@ -23,21 +24,21 @@ public type User record {|
     string createdAt;
 |};
 
-# Date range for rentals
-public type DateRange record {|
+// Date range for rentals
+public type DateRange record {| 
     string startDate;
     string endDate;
 |};
 
-# Cart item
-public type CartItem record {|
+// Cart item
+public type CartItem record {| 
     string carId;
     DateRange rentalDates;
     float totalPrice;
 |};
 
-# Reservation
-public type Reservation record {|
+// Reservation
+public type Reservation record {| 
     string reservationId;
     string userId;
     CartItem[] items;
@@ -46,37 +47,37 @@ public type Reservation record {|
     string createdAt;
 |};
 
-# Response messages
-public type SuccessResponse record {|
+// Response messages
+public type SuccessResponse record {| 
     boolean success;
     string message;
     string id;
 |};
 
-public type CarList record {|
+public type CarList record {| 
     Car[] cars;
     int totalCount;
 |};
 
-public type CartResponse record {|
+public type CartResponse record {| 
     boolean success;
     string message;
     CartItem[] items;
     float totalPrice;
 |};
 
-public type ReservationList record {|
+public type ReservationList record {| 
     Reservation[] reservations;
     int totalCount;
 |};
 
-# Request messages
-public type AddCarRequest record {|
+// Request messages
+public type AddCarRequest record {| 
     Car car;
     string adminId;
 |};
 
-public type UpdateCarRequest record {|
+public type UpdateCarRequest record {| 
     string carId;
     string adminId;
     string make;
@@ -88,37 +89,37 @@ public type UpdateCarRequest record {|
     string location;
 |};
 
-public type RemoveCarRequest record {|
+public type RemoveCarRequest record {| 
     string carId;
     string adminId;
 |};
 
-public type ListCarsRequest record {|
+public type ListCarsRequest record {| 
     string filterMake;
     int filterYear;
     string customerId;
 |};
 
-public type SearchCarRequest record {|
+public type SearchCarRequest record {| 
     string carId;
     string customerId;
 |};
 
-public type AddToCartRequest record {|
+public type AddToCartRequest record {| 
     string carId;
     DateRange rentalDates;
     string customerId;
 |};
 
-public type PlaceReservationRequest record {|
+public type PlaceReservationRequest record {| 
     string customerId;
 |};
 
-public type ListReservationsRequest record {|
+public type ListReservationsRequest record {| 
     string userId;
 |};
 
-# Enums
+// Enums
 public enum CarStatus {
     UNKNOWN_STATUS = "UNKNOWN_STATUS",
     AVAILABLE = "AVAILABLE",
