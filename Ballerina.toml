@@ -1,0 +1,15 @@
+[package]
+org = "tuhaf"
+name = "car_rental_system"
+version = "0.1.0"
+distribution = "2201.12.7"
+
+[build-options]
+observabilityIncluded = true
+
+[dependencies]
+ballerina/grpc = "~1.2.0"
+ballerina/uuid = "~1.4.0"
+ballerina/log = "~1.4.0"
+ballerina/io = "~1.4.0"
+ballerina/strings = "~1.4.0"

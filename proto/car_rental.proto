@@ -1,0 +1,160 @@
+syntax = "proto3";
+
+package car_rental;
+
+option java_package = "org.example.car_rental";
+option java_outer_classname = "CarRentalProto";
+
+// Car details
+message Car {
+    string id = 1;          // Number plate (unique identifier)
+    string make = 2;        // e.g., Toyota
+    string model = 3;       // e.g., Camry
+    int32 year = 4;         // Manufacturing year
+    double daily_price = 5; // Daily rental price
+    int32 mileage = 6;      // Current mileage
+    CarStatus status = 7;   // AVAILABLE, UNAVAILABLE, MAINTENANCE
+    string location = 8;    // Rental location
+    string created_at = 9;  // Timestamp when created
+}
+
+enum CarStatus {
+    UNKNOWN_STATUS = 0;
+    AVAILABLE = 1;
+    UNAVAILABLE = 2;
+    MAINTENANCE = 3;
+}
+
+// User profile
+message User {
+    string user_id = 1;
+    string name = 2;
+    string email = 3;
+    UserRole role = 4;
+    string created_at = 5;
+}
+
+enum UserRole {
+    UNKNOWN_ROLE = 0;
+    CUSTOMER = 1;
+    ADMIN = 2;
+}
+
+// Date range for rentals
+message DateRange {
+    string start_date = 1;  // YYYY-MM-DD format
+    string end_date = 2;    // YYYY-MM-DD format
+}
+
+// Cart item
+message CartItem {
+    string car_id = 1;
+    DateRange rental_dates = 2;
+    double total_price = 3;
+}
+
+// Reservation
+message Reservation {
+    string reservation_id = 1;
+    string user_id = 2;
+    repeated CartItem items = 3;
+    double total_amount = 4;
+    string status = 5;      // PENDING, CONFIRMED, CANCELLED
+    string created_at = 6;
+}
+
+// Response messages
+message SuccessResponse {
+    bool success = 1;
+    string message = 2;
+    string id = 3;  // For operations that return an ID
+}
+
+message ErrorResponse {
+    bool success = 1;
+    string error_message = 2;
+    int32 error_code = 3;
+}
+
+message CarList {
+    repeated Car cars = 1;
+    int32 total_count = 2;
+}
+
+message ReservationList {
+    repeated Reservation reservations = 1;
+    int32 total_count = 2;
+}
+
+message CartResponse {
+    bool success = 1;
+    string message = 2;
+    repeated CartItem items = 3;
+    double total_price = 4;
+}
+
+// Service definition
+service CarRentalService {
+    // Admin operations
+    rpc AddCar(AddCarRequest) returns (SuccessResponse);
+    rpc UpdateCar(UpdateCarRequest) returns (SuccessResponse);
+    rpc RemoveCar(RemoveCarRequest) returns (CarList);
+    
+    // User management
+    rpc CreateUsers(stream User) returns (SuccessResponse);
+    
+    // Customer operations
+    rpc ListAvailableCars(ListCarsRequest) returns (stream Car);
+    rpc SearchCar(SearchCarRequest) returns (Car);
+    rpc AddToCart(AddToCartRequest) returns (CartResponse);
+    rpc PlaceReservation(PlaceReservationRequest) returns (Reservation);
+    rpc ListReservations(ListReservationsRequest) returns (ReservationList);
+}
+
+// Request messages
+message AddCarRequest {
+    Car car = 1;
+    string admin_id = 2;
+}
+
+message UpdateCarRequest {
+    string car_id = 1;
+    string admin_id = 2;
+    string make = 3;
+    string model = 4;
+    int32 year = 5;
+    double daily_price = 6;
+    int32 mileage = 7;
+    CarStatus status = 8;
+    string location = 9;
+}
+
+message RemoveCarRequest {
+    string car_id = 1;
+    string admin_id = 2;
+}
+
+message ListCarsRequest {
+    string filter_make = 1;  // Optional filter by make
+    int32 filter_year = 2;   // Optional filter by year
+    string customer_id = 3;
+}
+
+message SearchCarRequest {
+    string car_id = 1;
+    string customer_id = 2;
+}
+
+message AddToCartRequest {
+    string car_id = 1;
+    DateRange rental_dates = 2;
+    string customer_id = 3;
+}
+
+message PlaceReservationRequest {
+    string customer_id = 1;
+}
+
+message ListReservationsRequest {
+    string user_id = 1;
+}
