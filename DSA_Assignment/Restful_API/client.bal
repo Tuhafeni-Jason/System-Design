@@ -143,7 +143,7 @@ public function main() returns error? {
 
     
 
-    // --- Step 6: Overdue check ---
+    //Overdue check 
     io:println("\n## 6. Performing overdue maintenance check...");
     AssetResponse[] overdueAssets = check clientEndpoint->get("/assets/overdue");
     io:println(`✅ Found ${overdueAssets.length()} asset(s) with overdue schedules.`);
@@ -153,7 +153,7 @@ public function main() returns error? {
     
     
 
-    // --- Step 7: Managing a component ---
+    //Managing a component
     io:println("\n## 7. Adding a component to 'ENG-001'...");
     ComponentRequest componentReq = {name: "New Focusing Lens", description: "High-precision lens for fine cutting."};
     ComponentResponse newComponent = check clientEndpoint->post(string `/assets/ENG-001/components`, componentReq);
