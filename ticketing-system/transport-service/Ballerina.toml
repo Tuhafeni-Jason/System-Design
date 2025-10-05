@@ -1,0 +1,29 @@
+[package]
+org = "phoenix_cc"
+name = "ticketing_system"
+version = "0.1.0"
+
+[[dependency]]
+org = "ballerinax"
+name = "mysql"
+version = "1.16.1"
+
+[[dependency]]
+org = "ballerinax"
+name = "kafka"
+version = "4.6.0"
+
+[[dependency]]
+org = "ballerina"
+name = "uuid"
+version = "1.0.0"
+
+[[dependency]]
+org = "ballerina"
+name = "log"
+version = "2.13.0"
+
+[[dependency]]
+org = "ballerina"
+name = "jwt"
+version = "2.0.0"

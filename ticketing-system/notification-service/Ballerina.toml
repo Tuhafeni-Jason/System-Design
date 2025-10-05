@@ -1,0 +1,15 @@
+[package]
+org = "phoenix_cc"
+name = "notification-service"  
+version = "0.1.0"
+
+[dependencies]
+ballerina/http = ">=1.5.0"
+ballerinax/mysql = ">=1.5.0"
+ballerinax/kafka = ">=2.5.0"  
+ballerina/jwt = ">=1.5.0"
+ballerina/uuid = ">=1.5.0"
+ballerina/sql = ">=1.5.0" 
+ballerina/log = ">=1.5.0"  
+ballerina/crypto = ">=1.5.0"
+
